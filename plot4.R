@@ -15,8 +15,7 @@ power2 <- power[(power$Date=="1/2/2007")|(power$Date=="2/2/2007"),]
 DateTime <- strptime(paste(power2$Date, power2$Time), "%d/%m/%Y %H:%M:%S")
 
 png(file = "plot4.png", width=480, height=480)  #open PNG device
-plot4 <- function(){
-	par(mfrow=c(2,2))
+plot4 <- par(mfrow=c(2,2))
 	#create plot 4-1
 	plot(power2$DateTime, power2$Global_active_power, type="l", xlab="", ylab="Global Active Power")      	
 	#create plot 4-2
@@ -30,5 +29,4 @@ plot4 <- function(){
 	})
 	#create plot 4-4
 	plot(power2$DateTime, power2$Global_reactive_power, type="l", xlab="datetime", ylab="Global_reactive_power")
-}
 dev.off()      #close PNG device
